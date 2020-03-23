@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Person from '../Components/Persons/Person/Person';
+import Persons from '../Components/Persons/persons';
 
 class App extends Component {
   state = {
@@ -51,15 +51,10 @@ changeNameHandler = (event,id) => {
     if(this.state.PersonDisplay){
       persons = (
         <div>
-          {this.state.Persons.map((person,index) => {
-            return <Person 
-            click = {() => this.deleteNameHandler(index)}
-            name = {person.name}  
-            age = {person.age}
-            key = {person.id}
-            changed = {(event) => {this.changeNameHandler(event,person.id)} }/>
-
-          })}
+          <Persons persons = {this.state.Persons} 
+          clicked = {this.deleteNameHandler} 
+          changed = {this.changeNameHandler}
+          />
         </div>
       );
       style.backgroundColor = 'red'
