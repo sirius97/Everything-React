@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Persons from '../Components/Persons/persons';
+import Cockpit from '../Components/cockpit/cockpit';
 
 class App extends Component {
   state = {
@@ -40,12 +41,7 @@ changeNameHandler = (event,id) => {
 }
 
   render() {
-    const style = {
-      backgroundColor : 'green',
-      cursor : 'pointer',
-      color : 'white'
-    }
-
+    
     let persons = null
 
     if(this.state.PersonDisplay){
@@ -57,24 +53,17 @@ changeNameHandler = (event,id) => {
           />
         </div>
       );
-      style.backgroundColor = 'red'
+      
     }
 
-    let classes = []
-    if(this.state.Persons.length <=2){
-      classes.push('red')
-    }
-    if(this.state.Persons.length <=1){
-      classes.push('bold')
-    }
+    
 
     return (
       <div className="App">
-        <h1>This is a React App</h1>
-        <p className = {classes.join(' ')}>This is working!!</p>
-        <button 
-        style = {style}
-        onClick = {this.toggleButtonHandler}>Switch</button>
+        <Cockpit Persons = {this.state.Persons}
+        PersonDisplay = {this.state.PersonDisplay}
+        toggleButton = {this.toggleButtonHandler}
+        />
         {persons}
         </div>
     );
