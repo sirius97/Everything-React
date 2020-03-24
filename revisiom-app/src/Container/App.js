@@ -60,7 +60,9 @@ changeNameHandler = (event,id) => {
 
     return (
       <div className="App">
-        <Cockpit Persons = {this.state.Persons}
+        <Cockpit 
+        title = {this.props.appTitle}
+        Persons = {this.state.Persons}
         PersonDisplay = {this.state.PersonDisplay}
         toggleButton = {this.toggleButtonHandler}
         />
